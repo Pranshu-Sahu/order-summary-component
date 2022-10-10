@@ -1,0 +1,250 @@
+@import url("https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@500;700;900&display=swap");
+:root {
+  --clr-neutral-100: hsl(0, 0%, 100%);
+  --clr-neutral-200: hsl(225, 100%, 98%);
+  --clr-neutral-400: hsl(224, 23%, 55%);
+  --clr-neutral-800: hsl(223, 47%, 23%);
+
+  --clr-primary-200: hsl(225, 100%, 94%);
+  --clr-primary-300: hsl(225, 83%, 68%);
+  --clr-primary-400: hsl(245, 75%, 52%);
+
+  --fs-300: 0.875rem;
+  --fs-400: 1rem;
+  --fs-700: 1.75rem;
+
+  --fw-500: 500;
+  --fw-700: 700;
+  --fw-900: 900;
+}
+@media (max-width: 420px) {
+  :root {
+    --fs-300: 0.6rem;
+    --fs-400: 0.8rem;
+    --fs-700: 1.25rem;
+  }
+}
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role="list"],
+ol[role="list"] {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+/* general styling */
+body {
+  font-family: "Red Hat Display", sans-serif;
+  font-weight: var(--fw-500);
+  font-size: var(--fs-400);
+  color: var(--clr-neutral-400);
+  display: grid;
+  place-items: center;
+  grid-auto-rows: 1fr 2rem;
+  
+}
+h2 {
+  font-size: var(--fs-700);
+  font-weight: var(--fw-900);
+  color: var(--clr-neutral-800);
+}
+/* composition */
+.flow > * + * {
+  margin-top: 1rem;
+}
+.display-block {
+  display: block;
+  width: 100%;
+}
+.flex-row {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* utility classes */
+.p-24 {
+  padding: 1.5rem;
+}
+.p-48 {
+  padding: 3rem;
+}
+@media (max-width: 420px) {
+  .p-24 {
+    padding: 1rem;
+  }
+  .p-48 {
+    padding: 2rem;
+  }
+}
+.text-neutral-400 {
+  color: var(--clr-neutral-400);
+}
+.text-neutral-800 {
+  color: var(--clr-neutral-800);
+}
+.bg-neutral-100 {
+  background-color: var(--clr-neutral-100);
+}
+.bg-neutral-200 {
+  background-color: var(--clr-neutral-200);
+}
+.bg-primary-200 {
+  background-color: var(--clr-primary-200);
+}
+
+.text-align-center {
+  text-align: center;
+}
+.fw-bold {
+  font-weight: var(--fw-900);
+}
+.br-1 {
+  border-radius: 0.5rem;
+}
+.br-2 {
+  border-radius: 1rem;
+}
+
+.link {
+  cursor: pointer;
+  color: var(--clr-primary-400);
+  background: transparent;
+  border: 0;
+  font-weight: var(--fw-700);
+  text-decoration: underline;
+  padding: 0;
+}
+.link:hover,
+.link:focus {
+  text-decoration: none;
+  color: var(--clr-primary-300);
+}
+.ml-auto {
+  margin-left: auto;
+}
+@media (max-width: 340px) {
+  .ml-auto {
+    margin: auto;
+  }
+}
+
+/* block */
+.card {
+  max-width: 30rem;
+  overflow: hidden;
+}
+.card__image img {
+  width: 100%;
+}
+button {
+  position: relative;
+}
+.btn {
+  cursor: pointer;
+  border: 0;
+  border-radius: 0.5rem;
+  font-weight: var(--fw-700);
+  padding: 0.5em 0;
+}
+.btn[data-type="primary"] {
+  color: var(--clr-neutral-100);
+  background-color: var(--clr-primary-400);
+}
+.btn[data-type="naked"] {
+  color: var(--clr-neutral-400);
+  background-color: transparent;
+}
+.btn[data-type="primary"]:hover,
+.btn[data-type="primary"]:focus {
+  background-color: var(--clr-primary-300);
+}
+.btn[data-type="naked"]:hover,
+.btn[data-type="naked"]:focus {
+  color: var(--clr-neutral-800);
+}
+button[data-tool-tip]::after {
+  content: attr(data-tool-tip);
+  white-space: nowrap;
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  z-index:2;
+  background-color: grey;
+  color: white;
+  font-size: .8em;
+  padding: 0.5em;
+  border-radius:5px;
+  scale: 0;
+  transition:scale linear 0.3s;
+}
+button[data-tool-tip]:hover::after {
+  scale:1;
+}
