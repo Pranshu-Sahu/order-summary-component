@@ -113,6 +113,7 @@ h1 {
   font-size: var(--fs-700);
   font-weight: var(--fw-900);
   color: var(--clr-neutral-800);
+  border:2px solid red;
 }
 /* composition */
 .flow > * + * {
